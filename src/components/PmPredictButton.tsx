@@ -11,13 +11,14 @@ const PmPredictButton = () => {
     const [newPm, setNewPm] = useState(0);
     const dispatch = useDispatch();
   
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setNewLat(Number(e.target.value));
-      dispatch(changePm(Number(e.target.value)));
+    function clickHandler(e: React.MouseEvent<HTMLButtonElement>) {
+      setNewPm(Math.floor(Math.random() * 100));
     };
   
     return (
-      <button onClick={() => setNewPm(`${lat}+${long}+${date}`)}>Predict</button>
+      <button onClick={clickHandler}>
+        Predict
+      </button>
     );
   };
   

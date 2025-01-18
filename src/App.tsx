@@ -5,6 +5,7 @@ import LatitudeInput from "./components/LatitudeInput";
 import LongitudeInput from "./components/LongitudeInput";
 import { useSelector } from "react-redux";
 import { RootState } from "./states/store";
+import { useState } from "react";
 
 function App() {
   const date = useSelector((state: RootState) => state.date.value);
@@ -12,7 +13,6 @@ function App() {
   const long = useSelector((state: RootState) => state.long.value);
   const pm = useSelector((state: RootState) => state.pm.value);
   const [pm25, setPm25] = useState(0);
-  const pm25 = 0.0;
   return (
     <div>
       <h1>Thailand PM 2.5 Predictor 2025</h1>

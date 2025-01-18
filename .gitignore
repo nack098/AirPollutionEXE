@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# python venv (i'm not sure how to make this actually)
+.venv
+flask_backend/.venv

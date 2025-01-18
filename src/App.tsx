@@ -3,6 +3,7 @@ import Geolocation from "./components/Geolocation";
 import DateInput from "./components/DateInput";
 import LatitudeInput from "./components/LatitudeInput";
 import LongitudeInput from "./components/LongitudeInput";
+import PmPredictButton from "./components/PmPredictButton";
 import { useSelector } from "react-redux";
 import { RootState } from "./states/store";
 import { useState } from "react";
@@ -23,11 +24,7 @@ function App() {
       <LongitudeInput />
       <h3>Selected latitude: {lat}</h3>
       <h3>Selected longitude: {long}</h3>
-      <button onClick={() => 
-        setPm25(1)
-      }>
-        Predict
-      </button>
+      <PmPredictButton />
       <h3>PM 2.5 level: {pm}</h3> {/*placeholder for PM 2.5 level*/}
     </div>
   );

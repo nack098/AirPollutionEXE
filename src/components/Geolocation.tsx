@@ -1,6 +1,6 @@
 import { useGeolocated } from "react-geolocated";
 
-const Mapping = () => {
+const Geolocation = () => {
   const { coords, isGeolocationAvailable, isGeolocationEnabled } =
     useGeolocated({
       userDecisionTimeout: 5000,
@@ -20,4 +20,4 @@ const Mapping = () => {
   );
 };
 
-export default Mapping;
+export default Geolocation;

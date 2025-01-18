@@ -10,6 +10,8 @@ function App() {
   const date = useSelector((state: RootState) => state.date.value);
   const lat = useSelector((state: RootState) => state.lat.value);
   const long = useSelector((state: RootState) => state.long.value);
+  const pm = useSelector((state: RootState) => state.pm.value);
+  const [pm25, setPm25] = useState(0);
   const pm25 = 0.0;
   return (
     <div>
@@ -21,7 +23,12 @@ function App() {
       <LongitudeInput />
       <h3>Selected latitude: {lat}</h3>
       <h3>Selected longitude: {long}</h3>
-      <h3>PM 2.5 level: {pm25}</h3> {/*placeholder for PM 2.5 level*/}
+      <button onClick={() => 
+        setPm25(1)
+      }>
+        Predict
+      </button>
+      <h3>PM 2.5 level: {pm}</h3> {/*placeholder for PM 2.5 level*/}
     </div>
   );
 }

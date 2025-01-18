@@ -7,16 +7,29 @@ const PmPredictButton = () => {
     const date = useSelector((state: RootState) => state.date.value);
     const lat = useSelector((state: RootState) => state.lat.value);
     const long = useSelector((state: RootState) => state.long.value);
-    const [newPm, setNewPm] = useState(0);
     const dispatch = useDispatch();
+
+    const data = {
+      date: {date},
+      lat: {lat},
+      long: {long}
+    }
+
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    }
   
-    function clickHandler(e: React.MouseEvent<HTMLButtonElement>) {
-      setNewPm(Math.round(Math.random() * 1000) / 10);
-      dispatch(changePm(newPm));
-    };
+    async function fetchRandomNumber() {
+      const response = await fetch('http://127.0.0.1:5000/api/data', requestOptions);
+      console.log(response);
+    }
   
     return (
-      <button onClick={clickHandler}>
+      <button onClick={() => fetchRandomNumber()}>
         Predict
       </button>
     );

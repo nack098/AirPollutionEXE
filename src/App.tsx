@@ -1,37 +1,25 @@
-import { useEffect, useState } from "react";
 import "./App.css";
-import Button from "./components/Button";
 import Geolocation from "./components/Geolocation";
 import DateInput from "./components/DateInput";
-import CoordInput from "./components/CoordInput";
+import LatitudeInput from "./components/LatitudeInput";
+import LongitudeInput from "./components/LongitudeInput";
+import { useSelector } from "react-redux";
+import { RootState } from "./states/store";
 
 function App() {
-  // useEffect(() => {
-  //   navigator.geolocation.getCurrentPosition((position) => {
-  //     setLat(position.coords.latitude);
-  //     setLong(position.coords.longitude);
-  //   });
-  // }, []);
-
+  const date = useSelector((state: RootState) => state.date.value);
+  const lat = useSelector((state: RootState) => state.lat.value);
+  const long = useSelector((state: RootState) => state.long.value);
   return (
     <div>
       <h1>PM 2.5 Predictor 2025</h1>
       <DateInput />
-      <h2>Current Coordinnates</h2>
+      <h3>Selected date: {date}</h3>
       <Geolocation />
-      {/* <Button
-        type="reset"
-        text="Use coordinates"
-        onClick={() => {
-          setLat(0);
-          setLong(0);
-        }}
-      /> */}
-      {/* <CoordInput
-        coord="Latitude"
-        pos={lat}
-        onChange={(e) => setLat(Number(e.target.value))}
-      /> */}
+      <LatitudeInput />
+      <LongitudeInput />
+      <h3>Selected latitude: {lat}</h3>
+      <h3>Selected longitude: {long}</h3>
     </div>
   );
 }
